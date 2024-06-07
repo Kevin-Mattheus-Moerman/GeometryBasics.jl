@@ -20,6 +20,12 @@ abstract type AbstractNgonFace{N,T} <: AbstractFace{N,T} end
 
 abstract type AbstractSimplex{Dim,N,T} <: StaticVector{Dim,T} end
 
+##############
+abstract type AbstractPolyhedron{N,T} <: StaticVector{N,T} end
+abstract type AbstractNhedron{N,T} <: AbstractPolyhedron{N,T} end
+
+#############
+
 """
 Face index, connecting points to form a simplex
 """
@@ -173,6 +179,15 @@ function Polytope(::Type{<:NSimplex{N}}, P::Type{<:AbstractPoint{NDim,T}}) where
     return Simplex{NDim,T,N,P}
 end
 Base.show(io::IO, x::LineP) = print(io, "Line(", x[1], " => ", x[2], ")")
+
+"""
+The Nhedron, an arbitrary (e.g. volumetric) domain connected by N points, such as a 
+a polyhedron featuring N points. This type is similar to NgonFace, and similarly 
+only contains the point indices of type T, but is for volumetric entities rather 
+than faces.  
+"""
+
+@fixed_vector Nhedron = AbstractNhedron
 
 """
     LineString(points::AbstractVector{<:AbstractPoint})

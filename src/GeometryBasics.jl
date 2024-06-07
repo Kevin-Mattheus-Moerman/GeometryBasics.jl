@@ -33,7 +33,7 @@ export AbstractGeometry, GeometryPrimitive
 export Mat, Point, Vec
 export LineFace, Polytope, Line, NgonFace, convert_simplex
 export LineString, AbstractPolygon, Polygon, MultiPoint, MultiLineString, MultiPolygon
-export Simplex, connect, Triangle, NSimplex, Tetrahedron
+export Simplex, connect, Triangle, NSimplex, Tetrahedron, AbstractPolyhedron, AbstractNhedron, Nhedron
 export QuadFace, metafree, coordinates, TetrahedronFace
 export TupleView, SimplexFace, Mesh, meta
 export Triangle, TriangleP
